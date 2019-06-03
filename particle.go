@@ -10,7 +10,6 @@ type Particle struct {
 }
 
 func (p *Particle) Tick () {
-  //println(p.Position.X)
   p.Velocity.X += p.Acceleration.X
   p.Velocity.Y += p.Acceleration.Y
   p.Acceleration.X = 0
@@ -20,8 +19,8 @@ func (p *Particle) Tick () {
 }
 
 func (p *Particle) ApplyForce (force geometry.Point) {
-  newAccX := force.X * p.Mass
-  newAccY := force.Y * p.Mass
+  newAccX := force.X / p.Mass
+  newAccY := force.Y / p.Mass
   p.Acceleration.X += newAccX
   p.Acceleration.Y += newAccY
 }
